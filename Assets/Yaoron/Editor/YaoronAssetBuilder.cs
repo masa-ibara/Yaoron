@@ -259,6 +259,10 @@ namespace Yaoron.EditorTools
         static void ConfigureRealtime(Component realtime)
         {
             if (realtime == null) return;
+
+            // Normcore 3 の自動接続設定。既定は有効で "Test Room" に入ってしまうので切る。
+            // (_joinRoomOnStart は 2.x 時代の旧フィールド。互換のため両方落としておく)
+            YaEditorUtil.SetBool(realtime, "_joinRoomOnStartOptions._enabled", false);
             YaEditorUtil.SetBool(realtime, "_joinRoomOnStart", false);
 
             var settingsType = YaEditorUtil.FindType("Normal.NormcoreAppSettings");

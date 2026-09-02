@@ -56,6 +56,7 @@ namespace Yaoron.EditorTools
             so.ApplyModifiedPropertiesWithoutUndo();
         }
 
+        /// <summary>fieldName は "_options._enabled" のようなネストしたパスも指定できる。</summary>
         public static void SetBool(UnityEngine.Object target, string fieldName, bool value)
         {
             var so = new SerializedObject(target);

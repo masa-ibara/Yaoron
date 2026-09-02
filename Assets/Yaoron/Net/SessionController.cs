@@ -92,23 +92,43 @@ namespace Yaoron.Net
 
         /// <summary>
         /// Realtime 自身の自動接続を止める。入室のタイミング (マイク権限のあと・ボタン起点) と
-        /// 接続先 (Quickmatch グループ) はこのクラスが決めるので、二重接続になると
-        /// 別のルームに入ってしまう。setter が無いのでシリアライズフィールドを直接落とす。
+        /// 接続先 (Quickmatch グループ) はこのクラスが決めるので、放っておくと
+        /// 既定の "Test Room" に勝手に入ってしまう。
+        /// Normcore 3 の設定は構造体 JoinRoomOnStartOptions に移っていて setter が無いため、
+        /// シリアライズフィールドを直接書き換える (旧 _joinRoomOnStart も残っているので両方見る)。
         /// </summary>
         void DisableJoinRoomOnStart()
         {
-            if (!_realtime.joinRoomOnStart) return;
+            const System.Reflection.BindingFlags Flags =
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;
 
-            var field = typeof(Realtime).GetField("_joinRoomOnStart",
-                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-            if (field == null)
+            bool disabled = false;
+
+            var optionsField = typeof(Realtime).GetField("_joinRoomOnStartOptions", Flags);
+            if (optionsField != null)
             {
-                YaLog.Warn("Realtime の Join Room On Start を無効化できませんでした。" +
-                           "インスペクタで手動オフにしてください。");
-                return;
+                // 値型なのでボックス化した実体を書き換えてから戻す。
+                object options = optionsField.GetValue(_realtime);
+                var enabledField = options?.GetType().GetField("_enabled", Flags);
+                if (enabledField != null && (bool)enabledField.GetValue(options))
+                {
+                    enabledField.SetValue(options, false);
+                    optionsField.SetValue(_realtime, options);
+                    disabled = true;
+                }
             }
-            field.SetValue(_realtime, false);
-            YaLog.Info("Realtime の Join Room On Start を無効化しました (接続は SessionController が管理します)。");
+
+            var legacyField = typeof(Realtime).GetField("_joinRoomOnStart", Flags);
+            if (legacyField != null && (bool)legacyField.GetValue(_realtime))
+            {
+                legacyField.SetValue(_realtime, false);
+                disabled = true;
+            }
+
+            if (disabled)
+                YaLog.Info("Realtime の Join Room On Start を無効化しました (接続は SessionController が管理します)。");
+            else if (optionsField == null && legacyField == null)
+                YaLog.Warn("Realtime の Join Room On Start を無効化できませんでした。インスペクタで手動オフにしてください。");
         }
 #endif
 

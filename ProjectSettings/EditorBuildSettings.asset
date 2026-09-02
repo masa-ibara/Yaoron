@@ -12,6 +12,8 @@ EditorBuildSettings:
     path: Assets/Yaoron/Scenes/World_Plaza.unity
     guid: 8b0afb840118a074e86136767de49626
   m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ec1da1cb6dd95d14a843ef58a1926b74,
+      type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 57b3e29350e7ddb47abbc7c41dd31f75,
       type: 2}
   m_UseUCBPForAssetBundles: 0
