@@ -1,0 +1,22 @@
+{
+    "name": "Yaoron.Net",
+    "rootNamespace": "Yaoron.Net",
+    "references": [
+        "Yaoron.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.normalvr.normcore",
+            "expression": "",
+            "define": "YA_NORMCORE"
+        }
+    ],
+    "noEngineReferences": false
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Yaoron.XR",
+    "rootNamespace": "Yaoron.XR",
+    "references": [
+        "Yaoron.Core",
+        "Yaoron.Inputs",
+        "Yaoron.Voice"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

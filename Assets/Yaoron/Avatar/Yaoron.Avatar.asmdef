@@ -1,0 +1,31 @@
+{
+    "name": "Yaoron.Avatar",
+    "rootNamespace": "Yaoron.Avatar",
+    "references": [
+        "Yaoron.Core",
+        "Yaoron.Net",
+        "VRM10",
+        "UniGLTF",
+        "UniGLTF.Utils"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.normalvr.normcore",
+            "expression": "",
+            "define": "YA_NORMCORE"
+        },
+        {
+            "name": "com.vrmc.vrm",
+            "expression": "",
+            "define": "YA_VRM"
+        }
+    ],
+    "noEngineReferences": false
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Yaoron.UI",
+    "rootNamespace": "Yaoron.UI",
+    "references": [
+        "Yaoron.Core",
+        "Yaoron.Net",
+        "Yaoron.Avatar",
+        "Yaoron.Voice",
+        "Yaoron.Inputs",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

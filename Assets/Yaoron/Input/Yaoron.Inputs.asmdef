@@ -1,0 +1,24 @@
+{
+    "name": "Yaoron.Inputs",
+    "rootNamespace": "Yaoron.Inputs",
+    "references": [
+        "Yaoron.Core",
+        "Yaoron.Voice",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "",
+            "define": "YA_INPUTSYSTEM"
+        }
+    ],
+    "noEngineReferences": false
+}

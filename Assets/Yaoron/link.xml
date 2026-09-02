@@ -1,0 +1,15 @@
+<!--
+  IL2CPP のマネージドコード除去 (Managed Stripping = Medium) で、
+  リフレクション経由でしか触られないシリアライズ用の型が消えるのを防ぐ (設計書 §11)。
+  未導入のアセンブリ名が書かれていても無視されるだけなので、まとめて列挙している。
+-->
+<linker>
+  <assembly fullname="Normal.Realtime" preserve="all" />
+  <assembly fullname="Normal.Realtime.Serialization" preserve="all" />
+  <assembly fullname="Normal.Utility" preserve="all" />
+  <assembly fullname="VRM10" preserve="all" />
+  <assembly fullname="UniGLTF" preserve="all" />
+  <assembly fullname="VRMShaders.GLTF.IO.Runtime" preserve="all" />
+  <assembly fullname="VRMShaders.VRM10.MToon10.Runtime" preserve="all" />
+  <assembly fullname="Assembly-CSharp" preserve="all" />
+</linker>
